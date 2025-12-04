@@ -1,0 +1,195 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 1rem;
+}
+
+.theme-picker {
+  border-width: 3px;
+  border-style: solid;
+  border-color: #1aff00;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.container {
+  border: 3px solid #1aff00;
+  border-radius: 5px;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem 0;
+  border-radius: 5px;
+  background: #106027;
+  color: #00ff84;
+}
+
+/* ---------------- BLUE THEME ---------------- */
+body:has(input[value='blue']:checked) {
+  @media (min-width: 1024px) {
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .item {
+      width: 30%;
+      background: #0000ff;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .item {
+      width: 50%;
+      background: #0000ff;
+    }
+  }
+}
+
+/* ---------------- GREEN THEME ---------------- */
+body:has(input[value='green']:checked) {
+  .container > .item:nth-child(1)::before {
+    content: '😀';
+    font-size: 2em;
+    position: absolute;
+    left: 1%;
+    top: 50%;
+    transform: translateY(-55%);
+  }
+
+  .container > .item:nth-child(1)::after {
+    content: '😀';
+    font-size: 2em;
+    position: absolute;
+    right: 1%;
+    top: 50%;
+    transform: translateY(-55%);
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      flex-wrap: nowrap;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .item {
+      background: #00ff00;
+    }
+    .container > .item:nth-child(1) {
+      width: 36%;
+      position: relative;
+    }
+    .container > .item:nth-child(2) {
+      width: 29%;
+    }
+    .container > .item:nth-child(3) {
+      width: 22%;
+    }
+    .container > .item:nth-child(4) {
+      width: 15%;
+    }
+    .container > .item:nth-child(5) {
+      width: 8%;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .container {
+      flex-direction: column-reverse;
+      align-items: flex-end;
+    }
+    .item {
+      background: #00ff00;
+    }
+    .container > .item:nth-child(1) {
+      width: 95%;
+      position: relative;
+    }
+    .container > .item:nth-child(2) {
+      width: 80%;
+    }
+    .container > .item:nth-child(3) {
+      width: 65%;
+    }
+    .container > .item:nth-child(4) {
+      width: 50%;
+    }
+    .container > .item:nth-child(5) {
+      width: 35%;
+    }
+  }
+}
+
+/* ---------------- RED THEME ---------------- */
+body:has(input[value='red']:checked) {
+  .container > .item:nth-child(1) {
+    order: 3;
+    font-weight: 700;
+  }
+  .container > .item:nth-child(1)::after {
+    content: '(Jestem większy i na środku!)';
+    display: block;
+    font-weight: 400;
+    font-size: 80%;
+  }
+
+  .container > .item:nth-child(2) {
+    order: 1;
+  }
+  .container > .item:nth-child(3) {
+    order: 2;
+  }
+  .container > .item:nth-child(4) {
+    order: 4;
+  }
+  .container > .item:nth-child(5) {
+    order: 5;
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+    .item {
+      background: #ff0000;
+      flex-grow: 1;
+    }
+    .container > .item:nth-child(1) {
+      flex-grow: 2;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .item {
+      background: #ff0000;
+      flex-grow: 1;
+    }
+    .container > .item:nth-child(1) {
+      width: 100%;
+      flex-grow: 2;
+      order: 3;
+      font-weight: 700;
+    }
+  }
+}

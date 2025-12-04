@@ -1,0 +1,188 @@
+/* Main */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #f5f6fa;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color-scheme: light;
+}
+
+header nav {
+  background-color: #004aad;
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a {
+  color: #f5f6fa;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #00a8ff;
+  text-decoration: none;
+}
+
+#nav-back {
+  color: #a7a7a7;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+#nav-back:hover {
+  color: #00a8ff;
+  text-decoration: none;
+}
+
+/* Contest Form */
+.form-title {
+  display: flex;
+  justify-content: space-between; /* tytuł po lewej, emoji po prawej */
+  align-items: center;
+  max-width: 500px; /* szerokość grupy (możesz dopasować np. 550–700px) */
+  margin: 40px auto; /* wyśrodkowanie całego bloku */
+  padding: 0 10px; /* lekki wewnętrzny margines */
+}
+
+.change-theme {
+  font-size: 35px;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.change-theme:hover {
+  font-size: 37px;
+  text-decoration: none;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.theme-checkbox {
+  display: none;
+}
+
+body:has(.theme-checkbox:checked) .form-contest {
+  color: #fff;
+  background-color: #1c1c1c;
+  color-scheme: dark;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.form-contest {
+  transition: background-color 0.3s, color 0.3s;
+  background-color: #fff;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 12px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 16px;
+}
+
+.form-contest label {
+  text-align: left;
+  cursor: pointer;
+}
+
+.form-contest input,
+.form-contest select {
+  padding: 10px;
+  border: 1px solid #707070;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.form-contest input[type='color'] {
+  height: 40px;
+  cursor: pointer;
+}
+
+.form-contest input[type='color']::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-contest input[type='color']::-webkit-color-swatch {
+  border: none;
+}
+
+.publication {
+  border: 2px solid #cbcbcb;
+  padding: 10px 15px;
+  text-align: left;
+}
+
+.publication label {
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.publication legend {
+  padding: 10px;
+}
+
+.publication input[type='radio'] {
+  margin: 0;
+  width: auto;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.agreement {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.agreement input[type='checkbox'] {
+  margin: 0;
+  width: auto;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.submit-button {
+  background-color: #4caf50;
+  font-weight: bold;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}

@@ -2,11 +2,65 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <title>Lab 4</title>
+    <title>Lab 4 | Kanban</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <h1>Lab 4</h1>
-    <a href="..">Powrót</a>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Lab 4</p>
+        <h1>Kanban</h1>
+      </div>
+      <a class="back-link" href="..">&larr; Powrót</a>
+    </header>
+
+    <main class="board" id="board">
+      <section class="column" data-column="todo">
+        <header class="column__header">
+          <div>
+            <p class="eyebrow">Lista</p>
+            <h2>Do zrobienia <span class="counter" data-count>0</span></h2>
+          </div>
+          <div class="column__actions">
+            <button type="button" data-action="add">+ Dodaj kartę</button>
+            <button type="button" data-action="color-column">Koloruj kolumnę</button>
+            <button type="button" data-action="sort">Sortuj</button>
+          </div>
+        </header>
+        <div class="cards" data-cards></div>
+      </section>
+
+      <section class="column" data-column="doing">
+        <header class="column__header">
+          <div>
+            <p class="eyebrow">Lista</p>
+            <h2>W trakcie <span class="counter" data-count>0</span></h2>
+          </div>
+          <div class="column__actions">
+            <button type="button" data-action="add">+ Dodaj kartę</button>
+            <button type="button" data-action="color-column">Koloruj kolumnę</button>
+            <button type="button" data-action="sort">Sortuj</button>
+          </div>
+        </header>
+        <div class="cards" data-cards></div>
+      </section>
+
+      <section class="column" data-column="done">
+        <header class="column__header">
+          <div>
+            <p class="eyebrow">Lista</p>
+            <h2>Zrobione <span class="counter" data-count>0</span></h2>
+          </div>
+          <div class="column__actions">
+            <button type="button" data-action="add">+ Dodaj kartę</button>
+            <button type="button" data-action="color-column">Koloruj kolumnę</button>
+            <button type="button" data-action="sort">Sortuj</button>
+          </div>
+        </header>
+        <div class="cards" data-cards></div>
+      </section>
+    </main>
+
+    <script src="js/app.js" defer></script>
   </body>
 </html>

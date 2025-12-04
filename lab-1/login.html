@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lab 1 - Logowanie</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Logowanie</h1>
+      <nav>
+        <ul>
+          <a href="index.html" id="nav-back">Powrót</a>
+          <li><a href="konkurs.html">Konkurs</a></li>
+          <li><a href="uwagi.html">Uwagi</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <form action="https://httpbin.org/post" method="post" class="form-login">
+        <label for="usrname">Login użytkownika:</label>
+        <input type="text" id="usrname" name="username" required />
+
+        <label for="password">Hasło:</label>
+        <input type="password" id="password" name="password" required />
+
+        <button type="submit">Zaloguj!</button>
+      </form>
+    </main>
+  </body>
+</html>

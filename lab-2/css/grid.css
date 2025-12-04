@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #eeeeee;
+}
+main,
+aside {
+  h1,
+  h2,
+  h3,
+  p {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  background-color: #f5f4f4;
+  display: grid;
+  grid-template-areas:
+    'header'
+    'nav'
+    'main'
+    'aside'
+    'footer';
+  grid-template-columns: 1fr;
+  margin: 0 auto;
+}
+
+header {
+  grid-area: header;
+  background-color: #f39c12;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 1em;
+}
+
+.logo {
+  background-color: white;
+  border-radius: 0.2rem;
+  font-size: 1.3rem;
+  padding: 0.3rem 1rem;
+  margin-right: 1rem;
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+nav {
+  grid-area: nav;
+  display: flex;
+  justify-content: center;
+  background-color: #2980b9;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1.2rem;
+  font-weight: bold;
+}
+
+nav a:hover {
+  background-color: #1f6693;
+}
+
+main {
+  grid-area: main;
+  padding: 1rem 1.5rem;
+}
+
+main h2 {
+  color: #495158;
+  margin: 1rem 0 0.5rem;
+}
+
+main p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+aside {
+  grid-area: aside;
+  background-color: #d4efdf;
+  padding: 1rem 1.5rem;
+}
+
+aside div {
+  text-align: center;
+}
+
+aside span {
+  font-size: 4rem;
+  margin: 0.5rem;
+}
+
+footer {
+  grid-area: footer;
+  background-color: #27ae60;
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    grid-template-areas:
+      'header header'
+      'nav nav'
+      'main aside'
+      'footer footer';
+    grid-template-columns: 2fr 1fr;
+  }
+
+  nav {
+    display: flex;
+    justify-content: left;
+  }
+
+  main {
+    padding: 2rem;
+  }
+
+  aside {
+    border-left: 2px solid #b2dfdb;
+    border-top: none;
+    padding: 2rem 1.5rem;
+  }
+
+  aside div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  aside span {
+    font-size: 5rem;
+    margin: 0.5rem;
+  }
+}

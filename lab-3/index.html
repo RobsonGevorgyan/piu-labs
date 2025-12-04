@@ -3,10 +3,84 @@
   <head>
     <meta charset="UTF-8" />
     <title>Lab 3</title>
+
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/polo.css" />
   </head>
+
   <body>
-    <h1>Lab 3</h1>
-    <a href="..">Powrót</a>
+    <section class="p-card">
+      <input hidden type="radio" id="color-blue" name="color" checked />
+      <input hidden type="radio" id="color-red" name="color" />
+      <input hidden type="radio" id="color-green" name="color" />
+      <input hidden type="radio" id="color-yellow" name="color" />
+
+      <figure class="p-img"></figure>
+
+      <article class="p-desc">
+        <h2>
+          Koszulka Polo
+          <span class="p-title">Promocja!</span>
+        </h2>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, aliquam!
+          Magnam, quod.
+        </p>
+
+        <div class="p-color-picker">
+          <span class="color-label">Dostępny kolor:</span>
+
+          <div class="color-dots">
+            <label
+              class="color-dot"
+              for="color-blue"
+              style="background: blue"
+            ></label>
+            <label
+              class="color-dot"
+              for="color-red"
+              style="background: red"
+            ></label>
+            <label
+              class="color-dot"
+              for="color-green"
+              style="background: green"
+            ></label>
+            <label
+              class="color-dot"
+              for="color-yellow"
+              style="background: yellow"
+            ></label>
+          </div>
+        </div>
+
+        <div class="p-size-picker">
+          <strong>Rozmiar:</strong>
+
+          <div class="sizes">
+            <input hidden type="radio" id="size-s" name="size" />
+            <label class="size-box" for="size-s">S</label>
+
+            <input hidden type="radio" id="size-m" name="size" checked />
+            <label class="size-box selected" for="size-m">M</label>
+
+            <input hidden type="radio" id="size-l" name="size" />
+            <label class="size-box" for="size-l">L</label>
+
+            <input hidden type="radio" id="size-xl" name="size" />
+            <label class="size-box" for="size-xl">XL</label>
+          </div>
+        </div>
+
+        <div class="price">59,99 zł</div>
+
+        <div class="cart-btn">
+          <button class="add-to-cart" type="button">
+            &#x1F6D2; Do koszyka
+          </button>
+        </div>
+      </article>
+    </section>
   </body>
 </html>
