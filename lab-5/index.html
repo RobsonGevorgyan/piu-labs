@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab-5 | Kształty</title>
+  <style>
+    :root {
+      --bg: #f6fbf7;
+      --panel: #ffffff;
+      --border: #dcdfe6;
+      --text: #1f2430;
+      --muted: #5f6b5f;
+      --accent: #16a34a;
+      --accent-2: #22c55e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .layout {
+      width: min(980px, 100%);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .eyebrow {
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin: 0 0 8px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(22px, 4vw, 30px);
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      margin: 6px 0 0;
+      max-width: 540px;
+      color: #4b5563;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: #dcfce7;
+      color: #14532d;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .panel {
+      margin-top: 18px;
+      background: var(--panel);
+      border-radius: 10px;
+      padding: 14px;
+      border: 1px solid var(--border);
+    }
+
+    .controls {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .controls__group {
+      background: #f0fdf4;
+      border: 1px dashed #d1d5db;
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .controls__label {
+      color: var(--muted);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .controls__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    button {
+      border: 1px solid var(--border);
+      cursor: pointer;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform 100ms ease, box-shadow 120ms ease, border-color 120ms ease;
+      color: var(--text);
+      background: #f3f4f6;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      border-color: #bfc3cf;
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .btn--square {
+      background: #d1fae5;
+      border-color: #a7f3d0;
+    }
+
+    .btn--circle {
+      background: #bbf7d0;
+      border-color: #86efac;
+    }
+
+    .btn--recolor {
+      background: #a7f3d0;
+      border-color: #6ee7b7;
+    }
+
+    .stats {
+      margin-top: 14px;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+
+    .stat-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .stat-card strong {
+      font-size: 24px;
+      letter-spacing: -0.01em;
+    }
+
+    .stat-card span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .board {
+      margin-top: 16px;
+      background: #eefcf3;
+      border-radius: 10px;
+      padding: 14px;
+      border: 1px dashed #c0e7cd;
+      min-height: 240px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shapes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 12px;
+    }
+
+    .shape {
+      position: relative;
+      width: 100%;
+      padding-top: 100%;
+      border-radius: 12px;
+      background: #86efac;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+      transition: transform 120ms ease, box-shadow 120ms ease;
+      border: 2px solid #bbf7d0;
+      cursor: pointer;
+    }
+
+    .shape[data-shape-type="circle"] {
+      border-radius: 50%;
+    }
+
+    .shape:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.16);
+    }
+
+    .shape__label {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: #111827;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      pointer-events: none;
+      font-size: 13px;
+    }
+
+    .empty-state {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: #4b5563;
+      font-weight: 600;
+      pointer-events: none;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .hint {
+      margin-top: 10px;
+      color: #6b7280;
+      font-size: 13px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #dcfce7;
+      border: 1px solid #bbf7d0;
+      font-size: 12px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <main class="layout">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">Lab-5 · Obserwator</p>
+        <h1>Kształty</h1>
+        <p class="lead">Dodawaj kwadraty i kółka, przekolorowuj je i obserwuj licznik. Kliknięcie w kształt usuwa go z planszy.</p>
+      </div>
+      <div class="badge">ES6 Modules · LocalStorage</div>
+    </div>
+
+    <section class="panel">
+      <div class="controls">
+        <div class="controls__group">
+          <span class="controls__label">Dodawanie</span>
+          <div class="controls__actions">
+            <button type="button" class="btn--square" data-add="square">+ Kwadrat</button>
+            <button type="button" class="btn--circle" data-add="circle">+ Kółko</button>
+          </div>
+        </div>
+        <div class="controls__group">
+          <span class="controls__label">Przekoloruj</span>
+          <div class="controls__actions">
+            <button type="button" class="btn--recolor" data-recolor="square">Kwadraty</button>
+            <button type="button" class="btn--recolor" data-recolor="circle">Kółka</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <span>Wszystkie</span>
+          <strong data-count-total>0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Kwadraty</span>
+          <strong data-count-square>0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Kółka</span>
+          <strong data-count-circle>0</strong>
+        </div>
+      </div>
+
+      <div class="board">
+        <div class="shapes" data-shapes></div>
+        <div class="empty-state" data-empty>Brak kształtów — dodaj coś, a potem kliknięciem usuwaj.</div>
+      </div>
+      <div class="hint">
+        <span class="pill">Tip</span>
+        <span>Stan zapisuje się w localStorage, a wszystkie zdarzenia idą do store.</span>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
